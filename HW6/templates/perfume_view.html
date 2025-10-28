@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mt-4 text-center">{{ perfume.brand }}, <span class="perfume-name">{{ perfume.name }}</span></h2>
+    
+    <div class="text-center">
+        <img src="{{ perfume.image }}" alt="{{ perfume.brand }}, {{ perfume.name }}" class="perfume-image">
+    </div>
+
+    <div class="mt-4">
+        <p><strong>Year:</strong> {{ perfume.year }}</p>
+        <p><strong>Price:</strong> {{ perfume.price }}</p>
+        <!-- italicize perfume name -->
+        <p><strong>Summary:</strong> {{ perfume.summary.replace(perfume.name, '<span class="perfume-name">' + perfume.name + '</span>') | safe }}</p>
+        <p><strong>Notes:</strong> {{ perfume.notes | join(", ") }}</p>
+    </div>
+
+    <!-- Similar Perfumes -->
+    {% if perfume.similar %}
+        <h4 class="mt-4">Similar Perfumes</h4>
+        <ul class="list-group similar-perfumes">
+            {% for similar in perfume.similar %}
+                {% if dataset.get(similar) %}
+                    <li class="list-group-item">
+                        <a href="/view/{{ similar }}">{{ dataset[similar]["brand"] }}, <span class="perfume-name">{{ dataset[similar]["name"] }}</span></a>
+                    </li>
+                {% else %}
+                    <li class="list-group-item">Unknown Perfume</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No similar perfumes found.</p>
+    {% endif %}
+
+    <!-- Back Button -->
+    <div class="text-center mt-4 mb-4">
+        {% if referrer and "/search" in referrer %}
+            <a href="{{ referrer }}" class="btn btn-secondary">Back to Search Results</a>
+        {% else %}
+            <a href="/" class="btn btn-secondary">Back to Home</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

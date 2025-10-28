@@ -1,0 +1,143 @@
+
+* {
+    font-family: Georgia, serif;
+    color: #666666;
+}
+
+a {
+    color: #0097a7;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #027e8c;
+    text-decoration: underline;
+}
+.navbar {
+    padding: 12px;
+    background-color: #fcf8ed;
+}
+
+.btn, .btn-discard, #discard-msg .ui-dialog-buttonset button {
+    font-size: 14px;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.btn {
+    background-color: #0097a7;
+}
+
+.btn:hover {
+    background-color: #027e8c;
+}
+
+.btn-discard {
+    background-color: #e74c3c;
+}
+
+.btn-discard:hover {
+    background-color: #c0392b;
+}
+
+.perfume-card {
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.perfume-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-head {
+    background-color: #fcf8ed;
+    text-align: center;
+    margin-top: 5px;
+    display: flex;
+}
+
+.card-title {
+    font-size: 23px;
+    font-weight: bold;
+    color: #2c2c2c;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #555555;
+}
+
+
+.perfume-name {
+    font-style: italic;
+}
+
+.name-link {
+    color:#0097a7;
+}
+
+.name-link:hover {
+    color:#027e8c;
+}
+
+.price {
+    color: #999999;
+    font-size: 22px;
+}
+
+.similar-perfumes {
+    max-width: 500px;
+    margin: auto;
+}
+
+.similar-txt {
+    color: #999999;
+    font-size: 18px;
+}
+
+.similar-perfumes .list-group-item {
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: transparent;
+}
+
+.perfume-image, .card-img-top {
+    width: 100%;
+    object-fit: contain;
+    max-height: 300px;
+}
+
+#discard-msg {
+    background-color: #fcf8ed;
+    padding: 10px;
+}
+
+#discard-msg .ui-dialog-titlebar {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+}
+
+#summary {
+    height: 300px;
+    resize: none;
+}
+
+.year {
+    color: #999999;
+    font-style: italic;
+    font-size: 16px;
+}
+
+.notes {
+    color: #666666;
+    font-size: 18px;
+}

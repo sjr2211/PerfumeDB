@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2 class="text-center">Welcome to Perfume Database!</h2>
+<p class="text-center text-muted">Click on any of our featured fragrances to begin or search the database for more.</p>
+
+<div class="row" id="featured-perfumes">
+
+</div>
+
+<script>
+    let perfumes = JSON.parse('{{ featured | tojson | safe }}');
+</script>
+
+
+<script src="{{ url_for('static', filename='home.js') }}"></script>
+{% endblock %}

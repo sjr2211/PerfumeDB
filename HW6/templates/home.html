@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2 class="text-center">Welcome to Perfume Database!</h2>
+<p class="text-center text-muted">Get started with featured perfumes or search for more.</p>
+
+<div class="row" id="featured-perfumes">{% for id, perfume in featured.items() %}
+    <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 perfume-card">
+            <img class="card-img-top" src="{{ perfume.image }}" alt="{{ perfume.brand }}, {{ perfume.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ perfume.brand }}, <span class="perfume-name">{{ perfume.name }}</span></h5>
+                <p><strong>Price:</strong> {{ perfume.price }}</p>
+                <p><strong>Notes:</strong> {{ perfume.notes|join(", ") }}</p>
+                <a href="/view/{{ id }}" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    var perfumes = JSON.parse('{{ featured | tojson | safe }}');
+</script>
+
+
+<script src="{{ url_for('static', filename='home.js') }}"></script>
+{% endblock %}

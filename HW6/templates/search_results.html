@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>Showing Results for "{{ query }}"</h2>
+
+<!-- Display Results -->
+{% if results %}
+<div class="row mt-4">
+    {% for id, perfume in results.items() %}
+    <div class="col-md-4 mt-2 mb-2">
+        <div class="card">
+            <img class="card-img-top" src="{{ perfume.image }}" alt="{{ perfume.brand }}, {{ perfume.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ perfume.brand }}, <span class="perfume-name">{{ perfume.name }}</span></h5>
+                <p><strong>Price:</strong> {{ perfume.price }}</p>
+                <p><strong>Notes:</strong> {{ perfume.notes | join(", ") }}</p>
+                <a href="/view/{{ perfume.id }}" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No results found.</p>
+{% endif %}
+{% endblock %}
